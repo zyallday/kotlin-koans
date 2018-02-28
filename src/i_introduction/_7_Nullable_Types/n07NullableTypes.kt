@@ -13,23 +13,30 @@ fun test() {
 }
 
 fun todoTask7(client: Client?, message: String?, mailer: Mailer): Nothing = TODO(
-    """
+        """
         Task 7.
         Rewrite JavaCode7.sendMessageToClient in Kotlin, using only one 'if' expression.
         Declarations of Client, PersonalInfo and Mailer are given below.
     """,
-    documentation = doc7(),
-    references = { JavaCode7().sendMessageToClient(client, message, mailer) }
+        documentation = doc7(),
+        references = { JavaCode7().sendMessageToClient(client, message, mailer) }
 )
 
 fun sendMessageToClient(
         client: Client?, message: String?, mailer: Mailer
 ) {
-    todoTask7(client, message, mailer)
+    task7Impl(client, message, mailer)
 }
 
-class Client (val personalInfo: PersonalInfo?)
-class PersonalInfo (val email: String?)
+fun task7Impl(client: Client?, message: String?, mailer: Mailer) {
+    if (null == client || null == message) return
+    if (null == client.personalInfo) return
+    if (null == client.personalInfo.email) return
+    mailer.sendMessage(client.personalInfo.email, message)
+}
+
+class Client(val personalInfo: PersonalInfo?)
+class PersonalInfo(val email: String?)
 
 interface Mailer {
     fun sendMessage(email: String, message: String)
