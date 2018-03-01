@@ -33,8 +33,11 @@ fun todoTask28(): Nothing = TODO(
 
 
 fun iterateOverDateRange(firstDate: MyDate, secondDate: MyDate, handler: (MyDate) -> Unit) {
-    todoTask28()
-//    for (date in firstDate..secondDate) {
-//        handler(date)
-//    }
+    for (date in firstDate..secondDate) {
+        handler(date)
+    }
+}
+
+fun main(args: Array<String>) {
+    println(MyDate(2016, 1, 7) <= MyDate(2016, 1, 6))
 }
