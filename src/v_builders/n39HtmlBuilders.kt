@@ -34,7 +34,7 @@ fun renderProductTable(): String {
                 }
             }
             val products = getProducts()
-            todoTask39()
+//            todoTask39()
         }
     }.toString()
 }
